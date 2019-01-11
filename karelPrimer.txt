@@ -1,0 +1,46 @@
+class program {
+   void tomarZumbadores(){
+      while(nextToABeeper){
+         pickbeeper();
+      }
+   
+   }
+   
+   void dobla(){
+     turnleft();
+     turnleft();
+   }
+   
+   void turnright(){
+     iterate(3){
+       turnleft();
+     }
+   }
+   
+   void regresa_una_posicion(){
+      dobla();
+      move();
+      turnright();
+      move();
+   }
+   
+   void avanzaHaciaCasa(){
+     
+     if (anyBeepersInBeeperBag){
+         putbeeper(); 
+         avanzaHaciaCasa();
+         move();
+         turnright();
+         move();
+         turnleft();
+     }     
+   }
+
+    program () {
+        // TODO poner codigo aqui
+        tomarZumbadores();
+        avanzaHaciaCasa();
+        regresa_una_posicion();
+        turnoff();
+    }
+}
