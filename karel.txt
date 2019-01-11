@@ -1,0 +1,43 @@
+class program {
+    
+    void avanzaRec(){
+      if (frontIsClear){
+         move();
+         avanzaRec();
+      }
+    }
+    
+    void avanzaHastaTopar(){
+        while (frontIsClear){
+          move();
+        }
+    }
+
+
+    void gira(n){
+       iterate(n){
+          turnleft();
+       }
+    }
+
+    void voltearEste(){
+       while (notFacingEast){
+          turnleft();
+       }
+    }
+
+    program () {
+        // TODO poner codigo aqui
+        voltearEste();
+        avanzaRec();
+        turnleft();
+        avanzaRec();
+        pickbeeper();
+        gira(2);
+        avanzaRec();
+        gira(3);
+        avanzaRec();
+        putbeeper();
+        turnoff();
+    }
+}
