@@ -1,0 +1,68 @@
+class program {
+    //Este programa lee los zumbadores
+    //y crea una piramide
+    //Función succ(n) incrementa n en 1
+    //Función pred(n) decrementa n en 1
+
+    void putKarelNorth(){
+      while (notFacingNorth){
+         turnleft();
+      }
+    }
+
+    void putKarelEast(){
+      while (notFacingEast){
+         turnleft();
+      }
+    }
+
+    
+     void putKarelWest(){
+       while (notFacingWest){
+          turnleft();
+       }
+    }
+    
+    void putKarelSouth(){
+       while (notFacingSouth){
+          turnleft();
+       }
+    }
+    
+    void avanza(n){
+      iterate(n){
+        putbeeper();
+        move();
+      }
+      putKarelWest();
+      while(frontIsClear){
+        move();
+      }
+      putKarelNorth();
+      move();
+    }
+    
+    void piramide(n){
+        putKarelEast();
+        avanza(n);
+    }
+    
+        
+    void altura(n){
+      if (nextToABeeper){
+        pickbeeper();
+        altura(succ(n));
+      }
+      piramide(n);
+    }
+    
+    program () {
+         altura(1);  
+        // piramide(6);
+        // TODO poner codigo aqui
+       // putKarelNorth();
+        //pickbeeper();
+        //altura();
+        turnoff();
+    }
+}
