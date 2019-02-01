@@ -1,0 +1,56 @@
+class program {
+   void avanza(){
+      if (frontIsClear){
+        move();
+      }
+      else{
+         orientaKarel();
+      }
+   }
+   
+   void orientaKarel(){
+       turnleft();
+       if (!frontIsClear){
+          turnleft();
+          turnleft();
+       }
+   }
+   
+   void empieza(){
+     if (notNextToABeeper){
+        avanza();
+        empieza();
+     }
+     else{
+        pickbeeper();
+     }
+   }
+   
+   void termina(){
+     if (facingNorth){
+       ponBeepers(1);
+     }
+     if (facingSouth){
+       ponBeepers(2);
+     }
+     if (facingEast){
+       ponBeepers(3);
+     }     
+      if (facingWest){
+       ponBeepers(4);
+     }    
+   }
+
+   void ponBeepers(n){
+     iterate(n){
+        putbeeper();
+     }
+   }
+   
+   program () {
+        // TODO poner codigo aqui
+        empieza();
+        termina();
+        turnoff();
+    }
+}
