@@ -1,0 +1,45 @@
+class program {
+
+    void ponerSouth(){
+      while (notFacingSouth){
+         turnleft();
+      }
+    }
+    
+    void avanza(){
+       if (frontIsClear){
+          move();
+          avanza();
+       }
+       else{
+         turnleft();
+       }
+    }
+    
+    void avanzaValidando(){
+       if (frontIsClear){
+          move();
+          if (rightIsClear){
+              iterate(3){
+                turnleft();
+              }
+              move();
+          }
+          else{
+            avanzaValidando();
+          }          
+       }
+       else{
+         turnleft();
+         avanzaValidando();
+       }       
+    }
+
+    program () {
+        // TODO poner codigo aqui
+        ponerSouth();
+        avanza();
+        avanzaValidando();
+        turnoff();
+    }
+}
